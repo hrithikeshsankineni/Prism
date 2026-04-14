@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python3 -c \"import sys; sys.path.insert\\(0, '/Users/hrithikeshsankineni/Documents/AI_Engineering_projects/Prism'\\); from backend.config import settings; print\\('research:', settings.groq_research_model\\); print\\('eval:', settings.groq_eval_model\\)\")"
-    ]
-  }
-}
