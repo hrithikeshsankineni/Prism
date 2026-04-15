@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional
 import chromadb
 from chromadb.utils.embedding_functions import DefaultEmbeddingFunction
 
+from backend.config import settings
 from backend.schemas.agent_schemas import FinalBrief
 
 logger = logging.getLogger(__name__)
