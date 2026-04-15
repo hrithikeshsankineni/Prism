@@ -3,9 +3,8 @@ import logging
 from typing import Any, Dict, List, Optional
 
 import chromadb
-from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+from chromadb.utils.embedding_functions import DefaultEmbeddingFunction
 
-from backend.config import settings
 from backend.schemas.agent_schemas import FinalBrief
 
 logger = logging.getLogger(__name__)
@@ -15,9 +14,7 @@ class RAGMemory:
     """ChromaDB-based memory for storing and retrieving prior briefs."""
 
     def __init__(self) -> None:
-        self._embedding_fn = SentenceTransformerEmbeddingFunction(
-            model_name=settings.embedding_model
-        )
+        self._embedding_fn = DefaultEmbeddingFunction()
         self._client = chromadb.PersistentClient(path=settings.chroma_persist_dir)
         self._collection = self._client.get_or_create_collection(
             name="prism_briefs",
